@@ -98,7 +98,7 @@ export const initProducts: ProductDoc[] = [
       name: "Crispy Red Apples",
       description:
         "Enjoy the natural sweetness of our freshly-picked, juicy red apples, perfect for a healthy snack.",
-      price: 0.5,
+      price: 0.50,
       rating: 4,
       stock: 100,
       image:
