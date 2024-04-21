@@ -10,7 +10,8 @@ import { fa } from "vuetify/iconsets/fa";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import router from "./router";
-import { initializeApp } from "firebase/app";
+import { initializeApp, FirebaseApp } from "firebase/app";
+import { getFirestore, Firestore } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -29,9 +30,10 @@ const firebaseConfig = {
   measurementId: "G-2HHK1BPPD7",
 };
 
-const app = initializeApp(firebaseConfig);
+const myapp: FirebaseApp = initializeApp(firebaseConfig);
+const db: Firestore = getFirestore(myapp)
 
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(myapp);
 
 const vuetify = createVuetify({
   icons: {

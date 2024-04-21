@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { ProductDoc } from "../types/product";
 import { initProducts } from "../data-init";
+import { collection } from "firebase/firestore";
 
 export const useProductStore = defineStore("ProductStore", {
   state: () => {
