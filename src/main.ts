@@ -10,6 +10,28 @@ import { fa } from "vuetify/iconsets/fa";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
 import router from "./router";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBiuK-VuzCdaOKcVrq3CK8_3e4LANLjO6Y",
+
+  authDomain: "cis371-project6-349bb.firebaseapp.com",
+
+  projectId: "cis371-project6-349bb",
+
+  storageBucket: "cis371-project6-349bb.appspot.com",
+
+  messagingSenderId: "717397735132",
+
+  appId: "1:717397735132:web:506e99d504f03ce4642619",
+
+  measurementId: "G-2HHK1BPPD7",
+};
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
 
 const vuetify = createVuetify({
   icons: {
