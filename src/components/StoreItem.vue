@@ -1,7 +1,7 @@
 <template>
   <v-hover>
     <template v-slot:default="{ isHovering, props }">
-      <v-card v-bind="props" class="d-flex flex-column" height="420" :elevation="isHovering ? 10 : 2">
+      <v-card v-bind="props" class="d-flex flex-column" height="500" :elevation="isHovering ? 10 : 2">
         <v-card-title class="d-flex align-center">
           {{ product.data.name }}
         </v-card-title>
@@ -31,15 +31,27 @@
             <v-spacer />
           </v-row>
         </v-container>
+        <v-row class="justify-start">
+          <v-col class="ma-3 v-col-auto" style="padding-left: 20px">
+            <v-btn class="bg-blue">
+               Modify 
+            </v-btn>
+          </v-col>
+          <v-col class="ma-3 v-col-auto" style="padding-right: 20px">
+            <v-btn class="bg-red">
+              Delete
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-card>
     </template>
   </v-hover>
 </template>
 
 <script lang="ts" setup>
-import { ProductDoc } from '../types/product';
-import { defineProps } from "vue"
+import { ProductDoc } from "../types/product";
+import { defineProps } from "vue";
 defineProps<{
-  product: ProductDoc
+  product: ProductDoc;
 }>();
 </script>
