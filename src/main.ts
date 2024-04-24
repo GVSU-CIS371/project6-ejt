@@ -12,7 +12,6 @@ import * as directives from "vuetify/directives";
 import router from "./router";
 import { initializeApp, FirebaseApp } from "firebase/app";
 import { getFirestore, Firestore } from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBiuK-VuzCdaOKcVrq3CK8_3e4LANLjO6Y",
