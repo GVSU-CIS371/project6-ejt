@@ -32,13 +32,13 @@
           </v-row>
         </v-container>
         <v-row class="justify-start">
-          <v-col class="ma-3 v-col-auto" style="padding-left: 20px">
+          <v-col class="ma-3 v-col-auto">
             <v-btn class="bg-blue">
                Modify 
             </v-btn>
           </v-col>
-          <v-col class="ma-3 v-col-auto" style="padding-right: 20px">
-            <v-btn class="bg-red">
+          <v-col class="ma-3 v-col-auto">
+            <v-btn class="bg-red" @click="delItem">
               Delete
             </v-btn>
           </v-col>
@@ -49,9 +49,26 @@
 </template>
 
 <script lang="ts" setup>
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "../main";
 import { ProductDoc } from "../types/product";
 import { defineProps } from "vue";
 defineProps<{
   product: ProductDoc;
 }>();
+
+const modItem = async() => {
+
+}
+
+
+const delItem = async(prod: ProductDoc) => {
+  const confirmDel = confirm("You sure about that?");
+  const prodRef = doc(db, 'products', prod.id);
+  if (confirmDel) {
+    await deleteDoc(prodRef);
+    window.location.reload();
+  }
+}
+
 </script>
