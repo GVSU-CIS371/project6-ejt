@@ -31,9 +31,7 @@ const firebaseConfig = {
 };
 
 const myapp: FirebaseApp = initializeApp(firebaseConfig);
-const db: Firestore = getFirestore(myapp)
-
-const analytics = getAnalytics(myapp);
+export const db: Firestore = getFirestore(myapp)
 
 const vuetify = createVuetify({
   icons: {
