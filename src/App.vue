@@ -40,7 +40,7 @@
           ></v-text-field>
           <v-row>
             <v-col>
-              <v-text-field v-model="product.price" label="Price $" />
+              <v-text-field v-model="product.price" label="Price (USD)" />
             </v-col>
             <v-col>
               <v-text-field v-model="product.stock" label="Stock" />
