@@ -50,14 +50,15 @@
         </v-row>
       </v-card>
     </template> </v-hover
-  ><v-dialog max-width="600px">
+  ><v-dialog v-model="modding" max-width="600px">
     <v-card>
       <v-card-title>Modifying Item</v-card-title>
       <v-card-text
-        ><v-text-field label="Name"></v-text-field>
+        ><v-text-field v-model="formData.name" label="Name"></v-text-field>
         <v-row>
           <v-col>
             <v-text-field
+              v-model="formData.imageUrl"
               label="Image URL"
             ></v-text-field>
           </v-col>
@@ -69,18 +70,20 @@
           </v-col>
         </v-row>
         <v-text-field
+          v-model="formData.description"
           label="Description"
         ></v-text-field>
         <v-row>
           <v-col>
-            <v-text-field label="Price (USD)" />
+            <v-text-field v-model="formData.price" label="Price (USD)" />
           </v-col>
           <v-col>
-            <v-text-field label="Stock" />
+            <v-text-field v-model="formData.stock" label="Stock" />
           </v-col>
         </v-row>
         <v-slider
           label="Rating"
+          v-model="formData.rating"
           min="0"
           max="5"
           step=".5"
@@ -89,6 +92,7 @@
         >
           <template v-slot:append>
             <v-text-field
+              v-model="formData.rating"
               style="width: 70px"
               density="compact"
               type="number"
@@ -120,6 +124,15 @@ import { defineProps, ref } from "vue";
 defineProps<{
   product: ProductDoc;
 }>();
+
+const formData = ref({
+  name: '',
+  imageUrl: '',
+  description: '',
+  price: 0,
+  stock: 0,
+  rating: 0
+});
 
 const modding = ref(false);
 
