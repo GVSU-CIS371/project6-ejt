@@ -50,15 +50,14 @@
         </v-row>
       </v-card>
     </template> </v-hover
-  ><v-dialog v-model="modding" max-width="600px">
+  ><v-dialog max-width="600px">
     <v-card>
       <v-card-title>Modifying Item</v-card-title>
       <v-card-text
-        ><v-text-field v-model="product.name" label="Name"></v-text-field>
+        ><v-text-field label="Name"></v-text-field>
         <v-row>
           <v-col>
             <v-text-field
-              v-model="product.image"
               label="Image URL"
             ></v-text-field>
           </v-col>
@@ -70,20 +69,18 @@
           </v-col>
         </v-row>
         <v-text-field
-          v-model="product.description"
           label="Description"
         ></v-text-field>
         <v-row>
           <v-col>
-            <v-text-field v-model="product.price" label="Price (USD)" />
+            <v-text-field label="Price (USD)" />
           </v-col>
           <v-col>
-            <v-text-field v-model="product.stock" label="Stock" />
+            <v-text-field label="Stock" />
           </v-col>
         </v-row>
         <v-slider
           label="Rating"
-          v-model="product.rating"
           min="0"
           max="5"
           step=".5"
@@ -92,7 +89,6 @@
         >
           <template v-slot:append>
             <v-text-field
-              v-model="product.rating"
               style="width: 70px"
               density="compact"
               type="number"
@@ -117,10 +113,10 @@
 </template>
 
 <script lang="ts" setup>
-import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../main";
 import { ProductDoc } from "../types/product";
-import { defineProps, reactive, ref } from "vue";
+import { defineProps, ref } from "vue";
 defineProps<{
   product: ProductDoc;
 }>();
